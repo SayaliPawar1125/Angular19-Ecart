@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Categories</h3>
+  <div class="accordion" id="categoriesAccordion">
+    <div class="accordion-item" *ngFor="let cat of categories; let i = index">
+      <h2 class="accordion-header" id="heading{{ i }}">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#collapse' + i"
+        >
+          {{ cat.name }}
+        </button>
+      </h2>
+      <div
+        [id]="'collapse' + i"
+        class="accordion-collapse collapse"
+        [attr.aria-labelledby]="'heading' + i"
+        data-bs-parent="#categoriesAccordion"
+      >
+        <div class="accordion-body">
+          <div class="row g-4">
+            <div class="col-md-4" *ngFor="let item of cat.products">
+              <app-product
+                [name]="item.name"
+                [imgPath]="item.imgPath"
+                [price]="item.price"
+              ></app-product>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

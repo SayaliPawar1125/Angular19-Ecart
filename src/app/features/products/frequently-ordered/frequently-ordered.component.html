@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Frequently Ordered</h3>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let item of items">
+      <app-product
+        [name]="item.name"
+        [imgPath]="item.imgPath"
+        [price]="item.price"
+      ></app-product>
+    </div>
+  </div>
+</div>
