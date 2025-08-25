@@ -14,6 +14,6 @@ export class FrequentlyOrderedComponent {
   items: any[] = [];
 
   constructor(private Service: SharedService) {
-    this.items = this.Service.getFrequentlyOrdered();
+    this.items = this.Service.getProducts();
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Order, SharedService } from '../shared.service';
 import { CommonModule } from '@angular/common';
+import { Order, SharedService } from '../../shared.service';
 
 @Component({
   selector: 'app-orders', 

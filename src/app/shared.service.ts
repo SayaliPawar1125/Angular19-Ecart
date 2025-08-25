@@ -16,14 +16,7 @@ export interface Order {
 export class SharedService {
    constructor() {}
 
-  getFrequentlyOrdered() {
-    return [
-      { name: 'iPhone 15', imgPath: '/iphone.jpeg', price: 999 },
-      { name: 'MacBook Pro', imgPath: '/macbook.jpeg', price: 1999 },
-      { name: 'AirPods Pro', imgPath: '/airpods.jpej', price: 249 },
-    ];
-  }
-
+ 
   getCategories() {
     return [
       {
@@ -31,26 +24,26 @@ export class SharedService {
         products: [
           {
             name: 'Samsung Galaxy S24',
-            imgPath: '/samsung.jpeg',
+            imageUrl: '/samsung.jpeg',
             price: 899,
           },
           {
             name: 'Google Pixel 9',
-            imgPath: '/pixel.jpeg',
+            imageUrl: '/pixel.jpeg',
             price: 799,
           },
           { name: 'iPhone 15', 
-            imgPath: '/iphone.jpeg', 
+            imageUrl: '/iphone.jpeg', 
             price: 999 },
         ],
       },
       {
         name: 'Laptops',
         products: [
-          { name: 'Dell XPS 15', imgPath: '/dell.jpeg', price: 1500 },
+          { name: 'Dell XPS 15', imageUrl: '/dell.jpeg', price: 1500 },
           {
             name: 'Lenovo ThinkPad',
-            imgPath: 'thinkpad.jpeg',
+            imageUrl: '/thinkpad.jpeg',
             price: 1200,
           },
         ],

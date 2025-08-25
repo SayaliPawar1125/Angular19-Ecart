@@ -1,31 +1,50 @@
 <div class="container mt-4">
-  <h3 class="mb-3">Categories</h3>
+  <h3 class="mb-5">Categories</h3>
+
   <div class="accordion" id="categoriesAccordion">
     <div class="accordion-item" *ngFor="let cat of categories; let i = index">
       <h2 class="accordion-header" id="heading{{ i }}">
         <button
-          class="accordion-button collapsed"
+          class="accordion-button"
           type="button"
           data-bs-toggle="collapse"
           [attr.data-bs-target]="'#collapse' + i"
+          [attr.aria-controls]="'collapse' + i"
+          [attr.aria-expanded]="i === 0 ? 'true' : 'false'"
         >
           {{ cat.name }}
         </button>
       </h2>
+
       <div
         [id]="'collapse' + i"
         class="accordion-collapse collapse"
+        [class.show]="i === 0"
         [attr.aria-labelledby]="'heading' + i"
-        data-bs-parent="#categoriesAccordion"
       >
         <div class="accordion-body">
-          <div class="row g-4">
-            <div class="col-md-4" *ngFor="let item of cat.products">
-              <app-product
-                [name]="item.name"
-                [imgPath]="item.imgPath"
-                [price]="item.price"
-              ></app-product>
+         
+          <div class="row flex-nowrap overflow-auto g-3">
+            <div
+              class="col-9 col-sm-6 col-md-4 col-lg-3 flex-shrink-0"
+              *ngFor="let product of cat.products"
+            >
+              <div class="card h-100 shadow-sm">
+                <img
+                  [src]="product.imageUrl"
+                  class="card-img-top fixed-size"
+                  alt="{{ product.name }}"
+                />
+                <div class="card-body text-center">
+                  <h6 class="card-title">{{ product.name }}</h6>
+                  <p class="card-text fw-semibold text-primary">
+                    ₹ {{ product.price }}
+                  </p>
+                  <button class="btn btn-outline-primary btn-sm w-100">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

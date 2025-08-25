@@ -1,0 +1,5 @@
+.fixed-size {
+  height: 200px;       
+  width: 100%;         
+  border-radius: 6px; 
+}

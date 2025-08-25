@@ -1,22 +1,31 @@
-
 import { Routes } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { OrdersComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
+import { CategoryComponent } from './features/products/category/category.component';
+import { FrequentlyOrderedComponent } from './features/products/frequently-ordered/frequently-ordered.component';
+import { ProductsPageComponent } from './features/products/products-page/products-page.component';
+import { HomeComponent } from './dashboard/home/home.component';
+import { OrdersComponent } from './dashboard/order/order.component';
+import { CartComponent } from './dashboard/cart/cart.component';
+
 
 export const appRoutes: Routes = [
+  { path: 'home', component: HomeComponent },
   {
-     path: 'products',
-    loadChildren: () =>
-      import('./features/products/products.routes').then(m => m.productsRoutes)
+    path: 'products',
+    component: ProductsPageComponent,
+    children: [
+      { path: 'category', component: CategoryComponent },
+      { path: 'frequently-ordered', component: FrequentlyOrderedComponent },
+      { path: '', redirectTo: 'category', pathMatch: 'full' }
+    ]
   },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'order', component: OrdersComponent },
   { path: 'product', component: ProductComponent },
-  { path: '', redirectTo: '/products/category', pathMatch: 'full' },
-  { path: '**', redirectTo: '/products/category' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' }
 ];
