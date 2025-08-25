@@ -1,0 +1,27 @@
+
+<h4 class="mb-3">Orders</h4>
+
+<div class="border rounded p-2">
+<div class="d-flex justify-content-between fw-bold border-bottom pb-2 mb-2">
+  <span>Order Date</span>
+  <span>Amount</span>
+  <span>Status</span>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let order of orders">
+    <div class="d-flex justify-content-between">
+      <span>{{ order.date }}</span>
+      <span>₹{{ order.amount }}</span>
+      <span class="badge" [ngClass]="{
+        'bg-success': order.status === 'Delivered',
+        'bg-warning': order.status === 'Pending',
+        'bg-danger': order.status === 'Cancelled'
+      }">{{ order.status }}</span>
+    </div>
+  </li>
+</ul>
+</div>
+
+
+
