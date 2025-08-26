@@ -17,4 +17,5 @@ export class CartComponent {
   constructor(private shared: SharedService) {
     this.products = this.shared.getProducts();
   }
+  
 }

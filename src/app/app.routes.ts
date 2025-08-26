@@ -8,10 +8,11 @@ import { ProductsPageComponent } from './features/products/products-page/product
 import { HomeComponent } from './dashboard/home/home.component';
 import { OrdersComponent } from './dashboard/order/order.component';
 import { CartComponent } from './dashboard/cart/cart.component';
+import { authGuard } from './auth.guard';
 
 
 export const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   {
     path: 'products',
     component: ProductsPageComponent,
