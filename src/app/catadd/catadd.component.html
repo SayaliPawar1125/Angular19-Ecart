@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow-sm border-0 p-4 rounded-3" style="max-width: 500px; width: 100%;">
+    <h3 class="text-center text-primary mb-3">Add Category</h3>
+    
+
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Category Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label"><b>Category Name</b></label>
+        <input
+          id="name"
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="Enter category name"
+        >
+        <div
+          *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched"
+          class="text-danger small"
+        >
+          Name is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="categoryForm.invalid">
+        Save
+      </button>
+    </form>
+  </div>
+</div>

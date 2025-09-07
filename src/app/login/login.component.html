@@ -1,8 +1,10 @@
 <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
-  <div class="card border rounded-4 shadow-sm p-4" style="max-width: 400px; width: 100%">
-    <h2 class="text-center mb-4">Login</h2>
+  <div class="card shadow-sm border-0 p-4 rounded-3" style="max-width: 380px; width: 100%">
+    <h3 class="text-center text-primary mb-3">Login</h3>
+    <p class="text-center text-muted mb-4">Sign in to your account</p>
 
     <form (ngSubmit)="onSubmit()">
+      <!-- Username -->
       <div class="mb-3">
         <label class="form-label">Username</label>
         <input
@@ -10,10 +12,12 @@
           [(ngModel)]="username"
           name="username"
           class="form-control"
+          placeholder="Enter username"
           required
         />
       </div>
 
+      <!-- Password -->
       <div class="mb-3">
         <label class="form-label">Password</label>
         <input
@@ -21,11 +25,20 @@
           [(ngModel)]="password"
           name="password"
           class="form-control"
+          placeholder="Enter password"
           required
         />
       </div>
 
-      <button class="btn btn-primary w-100" type="submit">Login</button>
+      <!-- Login Button -->
+      <button class="btn btn-primary w-100 fw-semibold" type="submit">
+        Login
+      </button>
     </form>
+
+    <!-- Extra Links -->
+    <div class="text-center mt-3">
+      <a href="#" class="small text-decoration-none">Forgot Password?</a>
+    </div>
   </div>
 </div>

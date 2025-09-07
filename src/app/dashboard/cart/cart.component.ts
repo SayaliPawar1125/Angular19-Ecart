@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Product, SharedService } from '../../shared.service';
+import { Component, OnInit } from '@angular/core';
+import { Product, SharedService, } from '../../shared.service';
 
 
 
@@ -11,11 +11,14 @@ import { Product, SharedService } from '../../shared.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private shared: SharedService) {
-    this.products = this.shared.getProducts();
+  constructor(private service: SharedService) {}
+
+  ngOnInit(): void {
+    this.service.getProducts().subscribe(res => {
+      this.products = res;
+    });
   }
-  
 }

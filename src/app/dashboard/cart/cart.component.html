@@ -3,7 +3,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
   <div class="col" *ngFor="let product of products">
     <div class="card h-100 shadow-sm">
-      <img [src]="product.imageUrl" class="card-img-top img-fluid fixed-size" alt="{{ product.name }}">
+      <img [src]="product.imgPath" class="card-img-top img-fluid fixed-size" alt="{{ product.name }}">
       <div class="card-body text-center">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text fw-semibold text-primary">₹ {{ product.price }}</p>

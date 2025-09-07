@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedService } from '../../../shared.service';
+import {Product, SharedService } from '../../../shared.service';
 
 
 
@@ -11,9 +11,12 @@ import { SharedService } from '../../../shared.service';
   styleUrls: ['./frequently-ordered.component.css'],
 })
 export class FrequentlyOrderedComponent {
-  items: any[] = [];
+  items:Product[] = [];
 
-  constructor(private Service: SharedService) {
-    this.items = this.Service.getProducts();
+  constructor(private service: SharedService) { }
+  ngOnInit(): void {
+    this.service.getProducts().subscribe(res => {
+      this.items = res;
+    });
   }
 }

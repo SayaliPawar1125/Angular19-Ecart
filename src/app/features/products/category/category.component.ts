@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedService } from '../../../shared.service';
 
+
 @Component({
   selector: 'app-category',
   imports: [CommonModule],
@@ -10,8 +11,13 @@ import { SharedService } from '../../../shared.service';
 })
 export class CategoryComponent {
    categories: any[] = [];
-  constructor(private Service: SharedService) {
-    this.categories = this.Service.getCategories();
+ 
+  constructor(private service: SharedService) { }
+
+    ngOnInit(): void {
+    this.service.getCategories().subscribe(res => {
+      this.categories = res;
+    });
   }
 
 }
