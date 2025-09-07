@@ -23,7 +23,7 @@ export class OrdaddComponent {
   onSubmit(): void {
     if (this.orderForm.valid) {
       console.log('Order Data:', this.orderForm.value);
-      // Call backend API later: this.service.addOrder(this.orderForm.value).subscribe(...)
+      
       alert('Order saved successfully!');
       this.orderForm.reset();
     }
