@@ -15,7 +15,7 @@ export interface Order {
 }
 
 export interface Category {
-  catid:number;
+  cat_id:number;
   name: string;
   products: Product[];
 }
@@ -52,8 +52,7 @@ export class SharedService {
   addCategory(category: { name: string }): Observable<any> {
     return this.http.post(`${this.API_URL}/categories`, category);
   }
-
-
+  
   getFrequentProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.API_URL}/frequent-products`);
   }
