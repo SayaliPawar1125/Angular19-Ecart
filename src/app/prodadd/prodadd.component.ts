@@ -16,12 +16,19 @@ export class ProdaddComponent {
   constructor(private fb: FormBuilder, private service: SharedService) {
     this.productForm = this.fb.group({
       name: ['', Validators.required],
-      category_id: ['', Validators.required],
-      price: [0, [Validators.required, Validators.min(1)]],
+      cat_id: ['', Validators.required], 
+      imgPath: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(1)]],
       is_popular: [false]
     });
   }
 
+    ngOnInit(): void {
+    this.service.getCategories().subscribe({
+      next: (data) => this.categories = data,
+      error: (err) => console.error('Error fetching categories', err)
+    });
+  }
 
   onSubmit(): void {
     if (this.productForm.valid) {

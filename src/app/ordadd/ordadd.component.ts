@@ -21,13 +21,19 @@ export class OrdaddComponent {
   }
 
   onSubmit(): void {
-    if (this.orderForm.valid) {
-      console.log('Order Data:', this.orderForm.value);
-      
-      alert('Order saved successfully!');
-      this.orderForm.reset();
-    }
+  if (this.orderForm.valid) {
+    const newOrder = this.orderForm.value;
+
+    this.service.addOrder(newOrder).subscribe({
+      next: (res) => {
+        alert('Order saved successfully!');
+        this.orderForm.reset();
+      },
+      error: (err) => {
+        console.error('Error saving order:', err);
+      }
+    });
   }
 }
-
+}
 

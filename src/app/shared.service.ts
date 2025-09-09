@@ -33,16 +33,17 @@ export class SharedService {
     return this.http.get<Product[]>(`${this.API_URL}/products`);
   }
 
-  addProduct(product: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/products`, product);
+  addProduct(product: Product): Observable<Product> {
+  return this.http.post<Product>(`${this.API_URL}/products`, product);
+}
+
+  
+  addOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.API_URL}/orders`, order);
   }
 
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(`${this.API_URL}/orders`);
-  }
-
-  addOrder(order: Order): Observable<any> {
-    return this.http.post(`${this.API_URL}/orders`, order);
   }
 
   getCategories(): Observable<Category[]> {

@@ -28,9 +28,9 @@
         <label class="form-label">Status</label>
         <select class="form-select" formControlName="status">
           <option value="">-- Select Status --</option>
-          <option value="Pending">Pending</option>
-          <option value="Delivered">Delivered</option>
-          <option value="Cancelled">Cancelled</option>
+          <option value="pending">Pending</option>
+          <option value="delivered">Delivered</option>
+          <option value="cancelled">Cancelled</option>
         </select>
         <div *ngIf="orderForm.get('status')?.invalid && orderForm.get('status')?.touched" class="text-danger small">
           Status is required

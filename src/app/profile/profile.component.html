@@ -1,1 +1,19 @@
-<p>profile works!</p>
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow-sm p-4 rounded-3 text-center" style="width: 300px;">
+
+    <!-- Profile Image -->
+    <img 
+      [src]="user.image" 
+      alt="Profile" 
+      class="rounded-circle mb-3" 
+      style="width: 100px; height: 100px; object-fit: cover;">
+
+    <!-- User Info -->
+    <h4>{{ user.name }}</h4>
+    <p class="text-muted">{{ user.email }}</p>
+
+    <!-- Logout Button -->
+    <button class="btn btn-danger w-100" (click)="logout()">Logout</button>
+    
+  </div>
+</div>

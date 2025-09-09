@@ -5,7 +5,7 @@ export const appRoutes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./dashboard/home/home.component').then(m => m.HomeComponent),
-    canActivate: [authGuard]
+    
   },
   {
     path: 'products',
@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
 
    {
     path: 'catadd',
-    loadComponent: () => import('./catadd/catadd.component').then(m => m.CataddComponent)
+    loadComponent: () => import('./catadd/catadd.component').then(m => m.CataddComponent),canActivate: [authGuard]
   },
 
   {
@@ -31,6 +31,11 @@ export const appRoutes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
+  },
+
+  {
+    path: 'profile',
+    loadComponent: () => import('./profile/profile.component').then(m => m.ProfileComponent)
   },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
